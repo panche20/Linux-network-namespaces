@@ -17,13 +17,13 @@ Note: Docker creates a new network namespace for each container.
 Verify running container: 
 `docker ps`
 
-![Running Container]
-
 <img width="1027" height="367" alt="image" src="https://github.com/user-attachments/assets/62f52319-df96-4f37-801d-957146a5ba5f" />
-
 
 ### Find Container PID
 `docker inspect -f '{{.State.Pid}}' test`
+
+<img width="912" height="60" alt="image" src="https://github.com/user-attachments/assets/0149533d-7ded-4448-99e4-fcc56caf271f" />
+
 
 ### Check Network Namespace (Host vs Container)
 On Host (EC2):
