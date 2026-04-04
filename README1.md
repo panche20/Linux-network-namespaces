@@ -14,4 +14,39 @@ Note: Docker creates a new network namespace for each container.
 ### Run a nginx container:
 `docker run -d --name test nginx:alpine`
 
-Verify running container: docker ps
+Verify running container: 
+`docker ps`
+
+### Find Container PID
+`docker inspect -f '{{.State.Pid}}' test`
+
+### Check Network Namespace (Host vs Container)
+On Host (EC2):
+`ip addr or ip a`
+
+Inside Container:
+`docker exec -it test sh`
+`ip addr`
+
+### Use nsenter
+From host:
+`sudo nsenter -t <PID> -n ip a`
+eg. `sudo nsenter -t 12345 -n ip a`
+
+### See Namespace Links
+`ls -l /proc/<PID>/ns`
+
+### Compare with Host Namespace
+`ls -l /proc/1/ns/net`
+
+Control Flow:
+```
+[ EC2 Host Namespace ]
+        |
+    docker0 (bridge)
+        |
+    veth pair
+        |
+[ Container Namespace ]
+    eth0 → 172.17.x.x
+```
