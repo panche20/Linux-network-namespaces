@@ -17,6 +17,11 @@ Note: Docker creates a new network namespace for each container.
 Verify running container: 
 `docker ps`
 
+![Running Container]
+
+<img width="1027" height="367" alt="image" src="https://github.com/user-attachments/assets/62f52319-df96-4f37-801d-957146a5ba5f" />
+
+
 ### Find Container PID
 `docker inspect -f '{{.State.Pid}}' test`
 
