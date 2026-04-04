@@ -1,0 +1,9 @@
+# Network Namespace
+
+## What is a Network Namespace?
+A network namespace is like a completely separate network stack:
+- own IP address
+- own routing table
+- own interfaces (eth0,lo,etc.)
+- own firewall rules
+
